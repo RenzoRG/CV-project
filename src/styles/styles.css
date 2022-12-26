@@ -1,0 +1,13 @@
+
+.main {
+    display: flex;
+    flex-direction: row;
+}
+.form {
+    flex-direction: column;
+    display: flex;
+}
+.section {
+    display: flex;
+    flex-direction: column;
+}
