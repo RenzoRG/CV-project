@@ -1,5 +1,7 @@
 import React from 'react'
 import GeneralInfo from './components/GeneralInfo';
+import EducationInfo from './components/EducationInfo';
+import WorkExperienceInfo from './components/WorkExperienceInfo';
 
 class App extends React.Component {
   constructor(props){
@@ -11,9 +13,15 @@ class App extends React.Component {
           email: '',
           number: '',
           //education
-          title: '',
-
-          //switch from submit to edit
+          schoolName: '',
+          titleName: '',
+          dateOfStudy: '',
+          //work experience
+          companyName: '',
+          positionTitle: '',
+          mainJobTasks: '',
+          dateAtTheJob: '',
+          //status of the form
           status:'edit'
         }
 
@@ -38,7 +46,7 @@ class App extends React.Component {
   }
 
   render() {
-    const {firstName, lastName, email, number, status} = this.state
+    const {firstName, lastName, email, number, schoolName, titleName, dateOfStudy, companyName, positionTitle, mainJobTasks, dateAtTheJob, status } = this.state
       return (
         <div className="App">
           <GeneralInfo 
@@ -46,6 +54,25 @@ class App extends React.Component {
             lastName={lastName}
             email={email}
             number={number}
+            status={status}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            handleEdit={this.handleEdit}
+          />
+          <EducationInfo 
+            schoolName={schoolName}
+            titleName={titleName}
+            dateOfStudy={dateOfStudy}
+            status={status}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            handleEdit={this.handleEdit}
+          />
+          <WorkExperienceInfo 
+            companyName={companyName}
+            positionTitle={positionTitle}
+            mainJobTasks={mainJobTasks}
+            dateAtTheJob={dateAtTheJob}
             status={status}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}

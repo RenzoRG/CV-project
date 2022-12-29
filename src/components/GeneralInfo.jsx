@@ -11,24 +11,28 @@ class GeneralInfo extends React.Component {
                   name='firstName'
                   value={firstName}
                   onChange={this.props.handleChange}
+                  type='text'
                 />
                 <label htmlFor='lastName'></label>
                 <input
                   name='lastName'
                   value={lastName}
                   onChange={this.props.handleChange}
+                  type='text'
                 />
                 <label htmlFor='email'></label>
                 <input
                   name='email'
                   value={email}
                   onChange={this.props.handleChange}
+                  type='email'
                 />
                 <label htmlFor='number'></label>
                 <input
                   name='number'
                   value={number}
                   onChange={this.props.handleChange}
+                  type='number'
                 />
                 <button type='submit'>Submit</button>
               </form>
