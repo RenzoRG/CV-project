@@ -2,27 +2,37 @@ import React from 'react'
 
 class EducationInfo extends React.Component {
     render() {
-        const {schoolName, titleName, dateOfStudy, status} = this.props
-        if ( status === 'edit') {
+        const {schoolName, titleName, dateOfStudy, educationStatus} = this.props
+        const educationStatusBtn = 'educationStatus'
+        if ( educationStatus === 'edit') {
           return (
-              <form onSubmit={this.props.handleSubmit}>
+              <form className={educationStatusBtn} onSubmit={this.props.handleSubmit}>
                 <label htmlFor='schoolName'></label>
                 <input
                   name='schoolName'
                   value={schoolName}
                   onChange={this.props.handleChange}
+                  placeholder='School'
+                  type='text'
+                  required
                 />
                 <label htmlFor='titleName'></label>
                 <input
                   name='titleName'
                   value={titleName}
                   onChange={this.props.handleChange}
+                  placeholder='title'
+                  type='text'
+                  required
                 />
                 <label htmlFor='dateOfStudy'></label>
                 <input
                   name='dateOfStudy'
                   value={dateOfStudy}
                   onChange={this.props.handleChange}
+                  placeholder='Start and end date of study'
+                  type='text'
+                  required
                 />
                 <button type='submit'>Submit</button>
               </form>
@@ -33,7 +43,7 @@ class EducationInfo extends React.Component {
             <h1>{schoolName}</h1>
             <h1>{titleName}</h1>
             <h1>{dateOfStudy}</h1>
-            <button onClick={this.props.handleEdit}>Edit</button>
+            <button className={educationStatusBtn} onClick={this.props.handleEdit}>Edit</button>
           </div>
         )
         }

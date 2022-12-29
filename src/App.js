@@ -12,17 +12,18 @@ class App extends React.Component {
           lastName: '',
           email: '',
           number: '',
+          generalStatus: 'edit',
           //education
           schoolName: '',
           titleName: '',
           dateOfStudy: '',
+          educationStatus: 'edit',
           //work experience
           companyName: '',
           positionTitle: '',
           mainJobTasks: '',
           dateAtTheJob: '',
-          //status of the form
-          status:'edit'
+          workStatus:'edit'
         }
 
   this.handleChange = this.handleChange.bind(this);
@@ -37,24 +38,27 @@ class App extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.setState({status: 'done'})
+    const btnName = e.target.className
+    this.setState({[btnName]: 'done'})
   }
 
   handleEdit(e) {
     e.preventDefault();
-    this.setState({status: 'edit'})
+    const btnName = e.target.className
+      this.setState({[btnName]: 'edit'})
   }
 
   render() {
-    const {firstName, lastName, email, number, schoolName, titleName, dateOfStudy, companyName, positionTitle, mainJobTasks, dateAtTheJob, status } = this.state
+    const {firstName, lastName, email, number, schoolName, titleName, dateOfStudy, companyName, positionTitle, mainJobTasks, dateAtTheJob, generalStatus, educationStatus, workStatus } = this.state
       return (
         <div className="App">
+          <h1>CV from scratch</h1>
           <GeneralInfo 
             firstName={firstName}
             lastName={lastName}
             email={email}
             number={number}
-            status={status}
+            generalStatus={generalStatus}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
             handleEdit={this.handleEdit}
@@ -63,7 +67,7 @@ class App extends React.Component {
             schoolName={schoolName}
             titleName={titleName}
             dateOfStudy={dateOfStudy}
-            status={status}
+            educationStatus={educationStatus}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
             handleEdit={this.handleEdit}
@@ -73,7 +77,7 @@ class App extends React.Component {
             positionTitle={positionTitle}
             mainJobTasks={mainJobTasks}
             dateAtTheJob={dateAtTheJob}
-            status={status}
+            workStatus={workStatus}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
             handleEdit={this.handleEdit}
