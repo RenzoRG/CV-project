@@ -2,14 +2,14 @@ import React from 'react'
 import GeneralInfo from './components/GeneralInfo';
 import EducationInfo from './components/EducationInfo';
 import WorkExperienceInfo from './components/WorkExperienceInfo';
+import './styles/App.css'
 
 class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
           //general info
-          firstName: '',
-          lastName: '',
+          name: '',
           email: '',
           number: '',
           generalStatus: 'edit',
@@ -49,39 +49,49 @@ class App extends React.Component {
   }
 
   render() {
-    const {firstName, lastName, email, number, schoolName, titleName, dateOfStudy, companyName, positionTitle, mainJobTasks, dateAtTheJob, generalStatus, educationStatus, workStatus } = this.state
+    const {name, email, number, schoolName, titleName, dateOfStudy, companyName, positionTitle, mainJobTasks, dateAtTheJob, generalStatus, educationStatus, workStatus } = this.state
+    const { handleChange, handleSubmit, handleEdit } = this
       return (
         <div className="App">
-          <h1>CV from scratch</h1>
-          <GeneralInfo 
-            firstName={firstName}
-            lastName={lastName}
-            email={email}
-            number={number}
-            generalStatus={generalStatus}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            handleEdit={this.handleEdit}
-          />
-          <EducationInfo 
-            schoolName={schoolName}
-            titleName={titleName}
-            dateOfStudy={dateOfStudy}
-            educationStatus={educationStatus}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            handleEdit={this.handleEdit}
-          />
-          <WorkExperienceInfo 
-            companyName={companyName}
-            positionTitle={positionTitle}
-            mainJobTasks={mainJobTasks}
-            dateAtTheJob={dateAtTheJob}
-            workStatus={workStatus}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            handleEdit={this.handleEdit}
-          />
+          <header>
+            <h1>CV from scratch</h1>
+          </header>
+            <div className='container'>
+                <div className='form'>
+                  <GeneralInfo 
+                    name={name}
+                    email={email}
+                    number={number}
+                    generalStatus={generalStatus}
+                    handleChange={handleChange}
+                    handleSubmit={handleSubmit}
+                    handleEdit={handleEdit}
+                  />
+                  <EducationInfo 
+                    schoolName={schoolName}
+                    titleName={titleName}
+                    dateOfStudy={dateOfStudy}
+                    educationStatus={educationStatus}
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit}
+                    handleEdit={this.handleEdit}
+                  />
+                  <WorkExperienceInfo 
+                    companyName={companyName}
+                    positionTitle={positionTitle}
+                    mainJobTasks={mainJobTasks}
+                    dateAtTheJob={dateAtTheJob}
+                    workStatus={workStatus}
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit}
+                    handleEdit={this.handleEdit}
+                    />
+                </div>
+              </div>
+            <footer>
+              <p></p>
+              <img/>
+            </footer>
         </div>
       )
     }
